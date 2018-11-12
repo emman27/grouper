@@ -4,6 +4,8 @@ import (
 	"flag"
 	"fmt"
 	"math"
+	"math/rand"
+	"time"
 
 	"github.com/emman27/grouper"
 )
@@ -14,6 +16,7 @@ var peopleFilePath = flag.String("people-file", "people.txt", "The filepath to t
 
 func main() {
 	flag.Parse()
+	rand.Seed(time.Now().UnixNano())
 	people := grouper.GetPeopleFromFile(peopleFilePath)
 	groups := grouper.Groups{}
 	groupMaxSize := int(math.Ceil(float64(len(people)) / float64(*numOfGroups)))

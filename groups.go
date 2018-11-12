@@ -3,7 +3,6 @@ package grouper
 import (
 	"fmt"
 	"math/rand"
-	"time"
 )
 
 // Group is a grouping of people
@@ -63,7 +62,6 @@ func (g *Groups) GetValidGroups() Groups {
 
 // Random selects a random group from the set of groups
 func (g *Groups) Random() *Group {
-	rand.Seed(time.Now().UnixNano())
 	if len(*g) == 0 {
 		panic("No groups to select from!")
 	}
